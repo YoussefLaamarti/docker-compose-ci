@@ -2,7 +2,12 @@ FROM node:18
 
 WORKDIR /app
 
-COPY app.js .
+COPY package.json .
 
-CMD ["node", "app.js"]
+RUN npm install
 
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
